@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# Next.js / build output
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Vercel
+.vercel/
+
+# Environment files (never commit secrets)
+.env
+.env*.local
+
+# Python virtual environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Large / temporary generated files
+# The full fare history CSV (~30 MB) is regenerated with `npm run data`;
+# a small sample (ml/data/fare_history_sample.csv) is committed instead.
+ml/data/fare_history.csv
+ml/data/*.tmp
+tests/e2e/output/
+*.log
+npm-debug.log*
+.chrome-profile/
+tmp/
+.cache/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

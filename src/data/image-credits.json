@@ -1,0 +1,182 @@
+{
+  "DEL": {
+    "file": "/images/destinations/del.jpg",
+    "title": "India Gate - Delhi",
+    "creator": "Gughanbose",
+    "creator_url": "https://commons.wikimedia.org/w/index.php?title=User:Gughanbose&action=edit&redlink=1",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=28140657",
+    "source": "Wikimedia Commons"
+  },
+  "BOM": {
+    "file": "/images/destinations/bom.jpg",
+    "title": "Gateway of India -Mumbai",
+    "creator": "Jawahar Soneji",
+    "creator_url": "https://commons.wikimedia.org/wiki/User:Jawahar_Soneji",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=72913311",
+    "source": "Wikimedia Commons"
+  },
+  "BLR": {
+    "file": "/images/destinations/blr.jpg",
+    "title": "Vidhana Soudha Bangalore",
+    "creator": "Wise Droid",
+    "creator_url": "https://commons.wikimedia.org/wiki/User:Wise_Droid",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=84731216",
+    "source": "Wikimedia Commons"
+  },
+  "MAA": {
+    "file": "/images/destinations/maa.jpg",
+    "title": "Sunrise at Chennai Marina beach",
+    "creator": "Irfanahmed605",
+    "creator_url": "https://commons.wikimedia.org/w/index.php?title=User:Irfanahmed605&action=edit&redlink=1",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=48631939",
+    "source": "Wikimedia Commons"
+  },
+  "HYD": {
+    "file": "/images/destinations/hyd.jpg",
+    "title": "Clear view of Charminar Hyderabad",
+    "creator": "Rashid Jorvee",
+    "creator_url": "https://commons.wikimedia.org/wiki/User:Rashid_Jorvee",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=81916182",
+    "source": "Wikimedia Commons"
+  },
+  "CCU": {
+    "file": "/images/destinations/ccu.jpg",
+    "title": "Hooghly River and the Howrah Bridge, Kolkata, India",
+    "creator": "Vyacheslav Argenberg",
+    "creator_url": "https://commons.wikimedia.org/wiki/User:Argenberg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=101410844",
+    "source": "Wikimedia Commons"
+  },
+  "COK": {
+    "file": "/images/destinations/cok.jpg",
+    "title": "Kochi, Fishing nets at sunset, Kerala, India",
+    "creator": "Vyacheslav Argenberg",
+    "creator_url": "https://commons.wikimedia.org/wiki/User:Argenberg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=123025415",
+    "source": "Wikimedia Commons"
+  },
+  "GOI": {
+    "file": "/images/destinations/goi.jpg",
+    "title": "Sunset at Goa beach",
+    "creator": "Swapnilshirali",
+    "creator_url": "https://commons.wikimedia.org/w/index.php?title=User:Swapnilshirali&action=edit&redlink=1",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=94977707",
+    "source": "Wikimedia Commons"
+  },
+  "JAI": {
+    "file": "/images/destinations/jai.jpg",
+    "title": "East facade Hawa Mahal Jaipur from ground level (July 2022) - img 01",
+    "creator": "Chainwit.",
+    "creator_url": "https://commons.wikimedia.org/wiki/User:Chainwit.",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=120750436",
+    "source": "Wikimedia Commons"
+  },
+  "DXB": {
+    "file": "/images/destinations/dxb.jpg",
+    "title": "Dubai skyline unsplash",
+    "creator": "Robert Bock",
+    "creator_url": null,
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=82583102",
+    "source": "Wikimedia Commons"
+  },
+  "DOH": {
+    "file": "/images/destinations/doh.jpg",
+    "title": "Doha skyline in the morning (12544910974)",
+    "creator": "Francisco Anzola",
+    "creator_url": "https://www.flickr.com/people/10345599@N03",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=32181989",
+    "source": "Wikimedia Commons"
+  },
+  "SIN": {
+    "file": "/images/destinations/sin.jpg",
+    "title": "Marina Bay Singapore-3499",
+    "creator": "Bijay Chaurasia",
+    "creator_url": null,
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=143514327",
+    "source": "Wikimedia Commons"
+  },
+  "KUL": {
+    "file": "/images/destinations/kul.jpg",
+    "title": "The Petronas Towers in 2024",
+    "creator": "Admiralhirohito",
+    "creator_url": "https://commons.wikimedia.org/w/index.php?title=User:Admiralhirohito&action=edit&redlink=1",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=150061987",
+    "source": "Wikimedia Commons"
+  },
+  "BKK": {
+    "file": "/images/destinations/bkk.jpg",
+    "title": "File:Templo Wat Arun, Bangkok, Tailandia, 2013-08-22, DD 37.jpg",
+    "creator": "Diego Delso",
+    "creator_url": "https://www.wikidata.org/wiki/Q28147777",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=28363649",
+    "source": "Wikimedia Commons"
+  },
+  "LHR": {
+    "file": "/images/destinations/lhr.jpg",
+    "title": "Tower Bridge seen from the south bank",
+    "creator": "Tristan Surtel",
+    "creator_url": "https://commons.wikimedia.org/wiki/User:Tristan_Surtel",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=83158043",
+    "source": "Wikimedia Commons"
+  },
+  "CDG": {
+    "file": "/images/destinations/cdg.jpg",
+    "title": "Eiffel Tower & Champ de Mars (48382823566)",
+    "creator": "Steven Penton from Bakers Beach, Tasmania Australia",
+    "creator_url": "https://www.flickr.com/people/136315829@N03",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=83084137",
+    "source": "Wikimedia Commons"
+  },
+  "JFK": {
+    "file": "/images/destinations/jfk.jpg",
+    "title": "File:Lower Manhattan skyline - June 2017.jpg",
+    "creator": "MusikAnimal",
+    "creator_url": "https://commons.wikimedia.org/wiki/User:MusikAnimal",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=60794455",
+    "source": "Wikimedia Commons"
+  },
+  "hero": {
+    "file": "/images/hero/sky-wing.jpg",
+    "title": "Aerial photography of airliner wing above clouds",
+    "creator": "Ross Parmly",
+    "creator_url": "https://unsplash.com/@rparmly",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "page": "https://unsplash.com/photos/rf6ywHVkrlY",
+    "source": "Unsplash"
+  }
+}

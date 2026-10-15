@@ -1,0 +1,28 @@
+{
+  "rows": 275888,
+  "routes": 756,
+  "airports": 28,
+  "airlines": 8,
+  "historyStart": "2025-10-15",
+  "historyEnd": "2026-10-14",
+  "days": 365,
+  "features": [
+    "origin_idx",
+    "dest_idx",
+    "distance_km",
+    "is_domestic",
+    "is_long_haul",
+    "origin_region",
+    "dest_region",
+    "dest_kind",
+    "origin_pop",
+    "dest_pop",
+    "days_before",
+    "day_of_week",
+    "month",
+    "is_holiday",
+    "holiday_importance",
+    "days_to_holiday",
+    "time_of_day"
+  ]
+}

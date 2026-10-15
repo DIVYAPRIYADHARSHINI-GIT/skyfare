@@ -1,0 +1,246 @@
+{
+  "monthlyAverages": [
+    {
+      "month": "2025-10",
+      "domestic": 6039,
+      "international": 29852,
+      "index": 1.0877
+    },
+    {
+      "month": "2025-11",
+      "domestic": 5651,
+      "international": 28162,
+      "index": 1.0219
+    },
+    {
+      "month": "2025-12",
+      "domestic": 6553,
+      "international": 35275,
+      "index": 1.2235
+    },
+    {
+      "month": "2026-01",
+      "domestic": 6136,
+      "international": 29854,
+      "index": 1.1045
+    },
+    {
+      "month": "2026-02",
+      "domestic": 5023,
+      "international": 23857,
+      "index": 0.8945
+    },
+    {
+      "month": "2026-03",
+      "domestic": 5300,
+      "international": 26055,
+      "index": 0.955
+    },
+    {
+      "month": "2026-04",
+      "domestic": 5317,
+      "international": 27201,
+      "index": 0.9702
+    },
+    {
+      "month": "2026-05",
+      "domestic": 6011,
+      "international": 31197,
+      "index": 1.0977
+    },
+    {
+      "month": "2026-06",
+      "domestic": 5692,
+      "international": 31584,
+      "index": 1.07
+    },
+    {
+      "month": "2026-07",
+      "domestic": 4420,
+      "international": 25986,
+      "index": 0.8597
+    },
+    {
+      "month": "2026-08",
+      "domestic": 4739,
+      "international": 26441,
+      "index": 0.8913
+    },
+    {
+      "month": "2026-09",
+      "domestic": 4816,
+      "international": 23798,
+      "index": 0.8587
+    },
+    {
+      "month": "2026-10",
+      "domestic": 5432,
+      "international": 27215,
+      "index": 0.9829
+    }
+  ],
+  "leadTimeCurve": [
+    {
+      "bucket": "0-2",
+      "from": 0,
+      "to": 2,
+      "index": 1.5689,
+      "rows": 22201
+    },
+    {
+      "bucket": "3-6",
+      "from": 3,
+      "to": 6,
+      "index": 1.2944,
+      "rows": 29431
+    },
+    {
+      "bucket": "7-13",
+      "from": 7,
+      "to": 13,
+      "index": 1.0572,
+      "rows": 51315
+    },
+    {
+      "bucket": "14-20",
+      "from": 14,
+      "to": 20,
+      "index": 0.9355,
+      "rows": 19828
+    },
+    {
+      "bucket": "21-34",
+      "from": 21,
+      "to": 34,
+      "index": 0.8631,
+      "rows": 29296
+    },
+    {
+      "bucket": "35-55",
+      "from": 35,
+      "to": 55,
+      "index": 0.8349,
+      "rows": 44369
+    },
+    {
+      "bucket": "56-89",
+      "from": 56,
+      "to": 89,
+      "index": 0.8368,
+      "rows": 43744
+    },
+    {
+      "bucket": "90-120",
+      "from": 90,
+      "to": 120,
+      "index": 0.8747,
+      "rows": 35704
+    }
+  ],
+  "dayOfWeekCurve": [
+    {
+      "day": 0,
+      "index": 0.9897
+    },
+    {
+      "day": 1,
+      "index": 0.9298
+    },
+    {
+      "day": 2,
+      "index": 0.9185
+    },
+    {
+      "day": 3,
+      "index": 0.9664
+    },
+    {
+      "day": 4,
+      "index": 1.0777
+    },
+    {
+      "day": 5,
+      "index": 1.0228
+    },
+    {
+      "day": 6,
+      "index": 1.0966
+    }
+  ],
+  "timeOfDayCurve": [
+    {
+      "bucket": "early",
+      "index": 0.9344
+    },
+    {
+      "bucket": "morning",
+      "index": 1.0496
+    },
+    {
+      "bucket": "afternoon",
+      "index": 0.9837
+    },
+    {
+      "bucket": "evening",
+      "index": 1.0821
+    },
+    {
+      "bucket": "night",
+      "index": 0.8975
+    }
+  ],
+  "monthCurve": [
+    {
+      "month": 1,
+      "index": 1.1045
+    },
+    {
+      "month": 2,
+      "index": 0.8945
+    },
+    {
+      "month": 3,
+      "index": 0.955
+    },
+    {
+      "month": 4,
+      "index": 0.9702
+    },
+    {
+      "month": 5,
+      "index": 1.0977
+    },
+    {
+      "month": 6,
+      "index": 1.07
+    },
+    {
+      "month": 7,
+      "index": 0.8597
+    },
+    {
+      "month": 8,
+      "index": 0.8913
+    },
+    {
+      "month": 9,
+      "index": 0.8587
+    },
+    {
+      "month": 10,
+      "index": 1.0404
+    },
+    {
+      "month": 11,
+      "index": 1.0219
+    },
+    {
+      "month": 12,
+      "index": 1.2235
+    }
+  ],
+  "holidayPremiumPct": 14.2,
+  "nonstopPremiumPct": 6.8,
+  "avgDomesticFare": 5456,
+  "avgInternationalFare": 28213
+}

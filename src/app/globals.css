@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* Class-based dark mode (toggled on <html class="dark">). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Inter for Latin; each Noto font only covers its own script (unicode-range),
+     so the browser picks the right one per character. */
+  --font-sans: var(--font-inter), var(--font-ta), var(--font-deva), var(--font-te), var(--font-kn), var(--font-ml), var(--font-bn), var(--font-ar), ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+
+  /* SkyFare sky-blue palette */
+  --color-sky-50: #f0f9ff;
+  --color-brand-50: #eef8ff;
+  --color-brand-100: #d8eeff;
+  --color-brand-200: #b9e2ff;
+  --color-brand-300: #89d1ff;
+  --color-brand-400: #52b6fc;
+  --color-brand-500: #2a97f8;
+  --color-brand-600: #1479ed;
+  --color-brand-700: #0f62d9;
+  --color-brand-800: #134faf;
+  --color-brand-900: #16458a;
+  --color-brand-950: #122b54;
+  --color-sun-400: #fbbf24;
+  --color-sun-500: #f59e0b;
+
+  --animate-fly: fly 2.4s ease-in-out infinite;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-takeoff: takeoff 1.8s ease-in-out infinite;
+  --animate-drift: drift 40s linear infinite;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+
+  @keyframes fly {
+    0% { transform: translateX(-60%) translateY(4px) rotate(4deg); opacity: 0; }
+    15% { opacity: 1; }
+    50% { transform: translateX(0%) translateY(-4px) rotate(-2deg); }
+    85% { opacity: 1; }
+    100% { transform: translateX(60%) translateY(4px) rotate(4deg); opacity: 0; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  @keyframes takeoff {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    40% { transform: translate(3px, -3px) rotate(-8deg); }
+    60% { transform: translate(5px, -5px) rotate(-12deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+  @keyframes drift {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes shimmer {
+    from { background-position: -400px 0; }
+    to { background-position: 400px 0; }
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-sky-50 text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100;
+  font-feature-settings: "tnum" 0;
+}
+
+/* RTL: mirror directional icons (arrows, planes) */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgb(226 232 240 / 0.6) 25%, rgb(241 245 249 / 0.9) 50%, rgb(226 232 240 / 0.6) 75%);
+  background-size: 800px 100%;
+  @apply animate-shimmer rounded-lg;
+}
+.dark .skeleton {
+  background: linear-gradient(90deg, rgb(30 41 59 / 0.7) 25%, rgb(51 65 85 / 0.7) 50%, rgb(30 41 59 / 0.7) 75%);
+  background-size: 800px 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Recharts tooltip in dark mode */
+.dark .recharts-default-tooltip {
+  background-color: rgb(15 23 42) !important;
+  border-color: rgb(51 65 85) !important;
+}
+.recharts-text {
+  font-size: 11px;
+}
