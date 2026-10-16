@@ -77,7 +77,7 @@ export function ForecastChart({ data, best, height = 300 }: { data: ForecastDatu
   const rows = data.map((d) => ({ ...d, range: [d.low, d.high] as [number, number] }));
   return (
     <div style={{ height }} dir="ltr" data-testid="forecast-chart">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" debounce={120} minWidth={0}>
         <ComposedChart data={rows} margin={{ top: 10, right: 12, left: 4, bottom: 0 }}>
           <defs>
             <linearGradient id="fc-range" x1="0" y1="0" x2="0" y2="1">
@@ -109,7 +109,7 @@ export function TravelDateChart({ data, selected, height = 220, onSelect }: { da
   const min = Math.min(...data.map((d) => d.predicted));
   return (
     <div style={{ height }} dir="ltr">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" debounce={120} minWidth={0}>
         <BarChart data={data} margin={{ top: 8, right: 8, left: 4, bottom: 0 }} onClick={(s) => s?.activeLabel && onSelect?.(String(s.activeLabel))}>
           <CartesianGrid stroke={c.grid} vertical={false} />
           <XAxis dataKey="date" tick={{ fill: c.axis }} tickFormatter={(d) => formatDate(d, { day: "numeric", month: "short" })} minTickGap={20} reversed={info.dir === "rtl"} />
@@ -135,7 +135,7 @@ export function PriceHistoryChart({ data, target, height = 160 }: { data: Array<
   const pad = Math.max(200, (hi - lo) * 0.15);
   return (
     <div style={{ height }} dir="ltr" data-testid="history-chart">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" debounce={120} minWidth={0}>
         <AreaChart data={data} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
           <defs>
             <linearGradient id="ph-fill" x1="0" y1="0" x2="0" y2="1">
@@ -161,7 +161,7 @@ export function MonthlyTrendChart({ data, height = 260 }: { data: Array<{ month:
   const fmtMonth = (m: string) => new Intl.DateTimeFormat(info.intl, { month: "short", timeZone: "UTC" }).format(new Date(`${m}-15T00:00:00Z`));
   return (
     <div style={{ height }} dir="ltr" data-testid="trend-chart">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" debounce={120} minWidth={0}>
         <LineChart data={data} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
           <CartesianGrid stroke={c.grid} vertical={false} />
           <XAxis dataKey="month" tick={{ fill: c.axis }} tickFormatter={fmtMonth} reversed={info.dir === "rtl"} />
@@ -184,7 +184,7 @@ export function IndexBarChart({ data, height = 200, highlightMin = true }: { dat
   const max = Math.max(...data.map((d) => d.index));
   return (
     <div style={{ height }} dir="ltr">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" debounce={120} minWidth={0}>
         <BarChart data={data} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
           <CartesianGrid stroke={c.grid} vertical={false} />
           <XAxis dataKey="label" tick={{ fill: c.axis }} interval={0} reversed={info.dir === "rtl"} />
@@ -207,7 +207,7 @@ export function ImportanceChart({ data, height = 300 }: { data: Array<{ label: s
   const c = useChartColors();
   return (
     <div style={{ height }} dir="ltr">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" debounce={120} minWidth={0}>
         <BarChart data={data} layout="vertical" margin={{ top: 4, right: 24, left: 8, bottom: 0 }}>
           <CartesianGrid stroke={c.grid} horizontal={false} />
           <XAxis type="number" tick={{ fill: c.axis }} tickFormatter={(v) => `${formatNumber(v * 100)}%`} />
@@ -226,7 +226,7 @@ export function ScatterFit({ data, height = 300 }: { data: Array<{ actual: numbe
   const max = Math.max(...data.map((d) => Math.max(d.actual, d.predicted)));
   return (
     <div style={{ height }} dir="ltr">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" debounce={120} minWidth={0}>
         <ScatterChart margin={{ top: 8, right: 12, left: 0, bottom: 8 }}>
           <CartesianGrid stroke={c.grid} />
           <XAxis type="number" dataKey="actual" name={t("about.actual")} tick={{ fill: c.axis }} tickFormatter={compactPrice(formatNumber)} domain={[0, max]} scale="sqrt" />

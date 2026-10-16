@@ -63,23 +63,29 @@ function useMenuFits(deps: unknown[]) {
       const toolsW = (tools?.offsetWidth ?? 0) - burgerW;
       // 2 x 12px flex gaps + 8px menu margin + 16px safety margin
       const needed = probe.scrollWidth + (logo?.offsetWidth ?? 0) + toolsW + 48;
-      setFits(window.innerWidth >= 1024 && needed <= inner);
+      const next = window.innerWidth >= 1024 && needed <= inner;
+      setFits((prev) => (prev === next ? prev : next));
     };
     measure();
-    // Re-measure when anything changes size - including when a script font
-    // finishes loading and the labels get wider.
-    const ro = new ResizeObserver(measure);
+    // Coalesce bursts of resize / font events into one measurement per frame.
+    let raf = 0;
+    const schedule = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(measure);
+    };
+    // Watch only elements whose size does NOT depend on `fits` (the nav width
+    // and the hidden probe). Watching the tools group would feed back on
+    // itself, because showing/hiding the burger changes its width.
+    const ro = new ResizeObserver(schedule);
     const nav = navRef.current;
-    if (nav) {
-      ro.observe(nav);
-      if (probeRef.current) ro.observe(probeRef.current);
-      nav.querySelectorAll<HTMLElement>("[data-logo], [data-tools]").forEach((el) => ro.observe(el));
-    }
-    document.fonts?.ready.then(measure).catch(() => {});
-    document.fonts?.addEventListener?.("loadingdone", measure);
+    if (nav) ro.observe(nav);
+    if (probeRef.current) ro.observe(probeRef.current);
+    document.fonts?.ready.then(schedule).catch(() => {});
+    document.fonts?.addEventListener?.("loadingdone", schedule);
     return () => {
+      cancelAnimationFrame(raf);
       ro.disconnect();
-      document.fonts?.removeEventListener?.("loadingdone", measure);
+      document.fonts?.removeEventListener?.("loadingdone", schedule);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);

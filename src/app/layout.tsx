@@ -32,7 +32,12 @@ const arabic = Noto_Sans_Arabic({ weight: ["400", "600", "700"], display: "swap"
 const fontVars = [inter, tamil, deva, telugu, kannada, malayalam, bengali, arabic].map((f) => f.variable).join(" ");
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  // Absolute URLs for og:image etc. On Vercel, VERCEL_PROJECT_PRODUCTION_URL is
+  // the production domain (e.g. skyfare-seven.vercel.app).
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000"),
+  ),
   title: { default: "SkyFare - Fly smart. Pay less.", template: "%s | SkyFare" },
   description:
     "SkyFare is a smart flight ticket booking tracker demo: find the cheapest flights, see a fare calendar, get ML price predictions (book now or wait), track prices and mock-book tickets in 11 languages with voice search.",

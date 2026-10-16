@@ -6,6 +6,7 @@
 // (incl. Arabic RTL), the voice fallback, search filters/sorting, budget
 // mode, prediction, watchlist alerts, booking + PDF e-ticket and My trips.
 // Screenshots go to tests/e2e/output/ (git-ignored).
+import { spawn } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -25,13 +26,36 @@ function check(name, ok, detail = "") {
 const iso = (days) => new Date(Date.now() + days * 86400000 + 5.5 * 3600000).toISOString().slice(0, 10);
 const DATE = iso(21);
 
+// Keep the Mac awake while the suite runs. macOS idle/lid sleep suspends Chrome
+// and Node mid-test, which looks exactly like a frozen page (CDP timeouts).
+if (process.platform === "darwin" && process.env.NO_CAFFEINATE !== "1") {
+  try {
+    spawn("caffeinate", ["-dimsu", "-w", String(process.pid)], { stdio: "ignore", detached: true }).unref();
+  } catch {}
+}
+// Sleep detector: the monotonic clock pauses during system sleep, wall time doesn't.
+let sleptMs = 0;
+let lastWall = Date.now();
+let lastMono = process.hrtime.bigint();
+setInterval(() => {
+  const wall = Date.now();
+  const mono = process.hrtime.bigint();
+  const gap = wall - lastWall - Number((mono - lastMono) / 1000000n);
+  if (gap > 20000) {
+    sleptMs += gap;
+    console.log(`WARN  system was asleep for ~${Math.round(gap / 1000)}s - keep the lid open / plug in power while testing`);
+  }
+  lastWall = wall;
+  lastMono = mono;
+}, 5000).unref();
+
 const { newPage, close } = await launch({ port: Number(process.env.CDP_PORT ?? 9333) });
 
 // Watchdog: never hang CI / the terminal if Chrome stops responding.
 const WATCHDOG_MS = Number(process.env.E2E_TIMEOUT_MS ?? 15 * 60_000);
 const watchdog = setTimeout(async () => {
   console.error(`E2E watchdog: aborting after ${WATCHDOG_MS / 1000}s`);
-  check("watchdog timeout", false, "Chrome stopped responding");
+  check("watchdog timeout", false, `Chrome stopped responding${sleptMs ? ` (system slept ~${Math.round(sleptMs / 1000)}s)` : ""}`);
   await close().catch(() => {});
   process.exit(2);
 }, WATCHDOG_MS);
@@ -83,6 +107,35 @@ try {
       const ok = info.brand && info.dark === Boolean(v.dark) && info.overflow <= 1 && info.imgsBroken.length === 0 && p.errors.length === 0;
       check(`[${v.tag}] ${name}`, ok, ok ? info.h1.slice(0, 50) : JSON.stringify({ ...info, errors: p.errors.slice(0, 3) }));
     }
+    await p.close();
+  }
+
+  // ---------- 1b. Dashboard responsiveness (regression check for the "freeze") ----------
+  for (const c of [
+    { lang: "en", width: 1366, height: 900 },
+    { lang: "ar", width: 1366, height: 900, dark: true },
+    { lang: "ta", width: 390, height: 844, mobile: true },
+  ]) {
+    const p = await freshPage(c);
+    await p.addInitScript(`window.__lt = 0; try { new PerformanceObserver(l => { for (const e of l.getEntries()) window.__lt = Math.max(window.__lt, e.duration); }).observe({ type: 'longtask', buffered: true }); } catch (e) {}`);
+    await p.goto(BASE + "/dashboard", { wait: 0 });
+    await p.waitFor(`document.querySelectorAll('.recharts-wrapper').length >= 3 && document.querySelectorAll('[data-testid=trending] img').length >= 4`, 20000);
+    let worst = 0;
+    for (let i = 0; i < 10; i++) {
+      const t = Date.now();
+      await p.eval("1");
+      worst = Math.max(worst, Date.now() - t);
+      await sleep(400);
+    }
+    await p.click("[data-testid=theme-toggle]");
+    await p.viewport(c.width - 150, c.height, c.mobile);
+    await sleep(600);
+    await p.viewport(c.width, c.height, c.mobile);
+    await sleep(600);
+    const t = Date.now();
+    const r = await p.eval(`({ longest: Math.round(window.__lt), charts: document.querySelectorAll('.recharts-wrapper').length })`);
+    worst = Math.max(worst, Date.now() - t);
+    check(`[dashboard ${c.lang} ${c.width}px] stays responsive`, worst < 1000 && r.longest < 1500 && r.charts >= 3 && p.errors.length === 0, `worst eval ${worst}ms, longest task ${r.longest}ms`);
     await p.close();
   }
 

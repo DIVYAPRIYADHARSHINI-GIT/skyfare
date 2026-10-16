@@ -6,6 +6,7 @@ import { CalendarClock, Flame, LayoutDashboard, Lightbulb, MoonStar, PartyPopper
 import { useI18n } from "@/i18n";
 import type { MessageKey } from "@/i18n/messages/en";
 import { useApi } from "@/lib/client";
+import { addDays, todayISO } from "@/lib/sim/dates";
 import type { DashboardResponse } from "@/lib/types";
 import { IndexBarChart, MonthlyTrendChart } from "@/components/charts";
 import { DestinationImage } from "@/components/DestinationImage";
@@ -161,7 +162,7 @@ export function DashboardView() {
   );
 }
 
+/** Travel date N days from today (India time, same clock as the API). */
 function formatDateISO(daysAhead: number) {
-  const d = new Date(Date.now() + daysAhead * 86_400_000);
-  return d.toISOString().slice(0, 10);
+  return addDays(todayISO(), daysAhead);
 }
