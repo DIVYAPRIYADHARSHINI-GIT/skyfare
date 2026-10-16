@@ -12,8 +12,9 @@ and read-aloud**.
 
 | | |
 | --- | --- |
-| **Live site** | _coming soon (Vercel)_ |
-| **Repository** | _coming soon (GitHub)_ |
+| **Live site** | **https://skyfare-seven.vercel.app** |
+| **Repository** | https://github.com/DIVYAPRIYADHARSHINI-GIT/skyfare |
+| **Hosting** | Vercel (Hobby plan), connected to GitHub: every push to `main` deploys automatically |
 
 Try: search **Chennai → Delhi**, open **Budget mode**, run **Price prediction**, add a route to the
 **Watchlist**, then book a flight with the test card `4111 1111 1111 1111` (any future expiry, any CVV).
@@ -112,7 +113,7 @@ Other scripts:
 | `npm run typecheck` | TypeScript check |
 | `npm test` | Unit tests (model parity with scikit-learn, multilingual voice parser) |
 | `npm run check:i18n` | Reports missing translation keys / placeholder mismatches for every language |
-| `npm run e2e` | Headless-Chrome smoke test of every page, viewport, language and flow (`BASE_URL=http://localhost:3000 npm run e2e`) |
+| `npm run e2e` | Headless-Chrome smoke test (89 checks): every page on desktop/mobile/light/dark, Dashboard responsiveness, search filters & sorting, budget mode, prediction, watchlist alert, full booking + PDF, all 11 languages + RTL, voice fallback. Uses your installed Chrome. `BASE_URL=http://localhost:3000 npm run e2e` or `BASE_URL=https://skyfare-seven.vercel.app npm run e2e`. On macOS it runs `caffeinate` so the Mac can't sleep mid-test. |
 
 ## Adding a language
 
